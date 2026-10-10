@@ -1,0 +1,13 @@
+# LIA.ontology — les fins de ligne sont versionnées telles quelles.
+#
+# Motif (2026-10-10, chantier V2.7.3, phase 1) : le contrôle C31 de l'ontologie ne cherche pas
+# à imposer CRLF ou LF — les deux familles cohabitent légitimement. Il cherche les fichiers qui
+# MÉLANGENT les deux, symptôme d'un script d'écriture qui n'a pas restitué la fin de ligne du
+# fichier qu'il modifiait.
+#
+# Une normalisation par git (`text=auto`) effacerait ce mélange au commit, et le contrôle
+# perdrait ce qu'il existe pour trouver. Git ne doit donc jamais convertir.
+#
+# Les fichiers de ce dépôt sont écrits en LF : le dépôt est multiplateforme, et un script dont
+# le shebang se termine par CRLF ne s'exécute pas sous Linux.
+* -text
